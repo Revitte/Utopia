@@ -1,1 +1,6 @@
 <h1>Olá Mundo, eu sou o Oitavo</h1>
+<p th:text="${nome}" >nao vai aparecer isso</p>
+<ul>
+    <li th:each="aluno: ${alunos}" th:text="${aluno}"></li>
+</ul>
+<p th:if="${ehProgramador}">A variavél ehProgramador está como true</p>
