@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.oitavo.utopia.models.Todo;
 import br.com.oitavo.utopia.repositories.Todorepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class TodoController {
@@ -27,8 +30,19 @@ public class TodoController {
             Map.of("todos", todoRepository.findAll())
         );
     }
+
+    @GetMapping("/create")
+    public ModelAndView create(){
+        return new ModelAndView("todo/form", Map.of("todo", new Todo()));
+    }
     
-    /* 
+    /*
+    public SomeData getMethodName(@RequestParam String param) {
+        return new SomeData();
+    }
+    
+    
+     
     COMMIT: Injeção de dependencias no Spring
     @GetMapping("/")
     public ModelAndView home(){
